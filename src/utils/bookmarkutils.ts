@@ -2,12 +2,14 @@ import { Bookmark } from "@/types/Bookmarktypes";
 const PER_PAGE = 50;
 export const fetchBookmarks = async (page: number = 0) => {
     const bookmarks: Bookmark[] = [];
+    const  url:any = process.env.RAINDROP;
+
 
     const req = await fetch(
-        `https://api.raindrop.io/rest/v1/raindrops/35034229?perpage=${PER_PAGE}&page=${page}`,
+    url,
         {
             headers: {
-                Authorization: `Bearer f21f4f8b-1671-469c-8ce2-bd6766702861`,
+                Authorization: `Bearer ${process.env.RAINDROPTOKEN}`,
             },
         }
     );
